@@ -1,8 +1,8 @@
 <header class="site-header">
   <div class="container">
-    <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+    <a href="{{ '/' | relative_url }}" class="site-title">⚾ {{ site.title }}</a>
     <nav class="site-nav">
-      <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>블로그</a>
+      <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>분석글</a>
       <a href="{{ '/archive' | relative_url }}" {% if page.url contains '/archive' %}class="active"{% endif %}>아카이브</a>
       <a href="{{ '/about' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>소개</a>
     </nav>
