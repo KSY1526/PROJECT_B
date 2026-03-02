@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="post-list">
+    {% for post in paginator.posts %}
+    <article class="post-card">
+      <div class="post-card-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
+        {% if post.tags.size > 0 %}
+        <div class="post-tags">
+          {% for tag in post.tags %}
+          <a href="{{ '/archive#' | append: tag | relative_url }}" class="tag">{{ tag }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <h2 class="post-card-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      {% if post.excerpt %}
+      <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+      {% endif %}
+      <a href="{{ post.url | relative_url }}" class="read-more">더 읽기 &rarr;</a>
+    </article>
+    {% endfor %}
+  </div>
+
+  {% if paginator.total_pages > 1 %}
+  <nav class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="prev">&larr; 이전</a>
+    {% endif %}
+    <span class="page-info">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">다음 &rarr;</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</div>

@@ -1,0 +1,8 @@
+{% assign post_url = page.url | prepend: site.url | url_encode %}
+<div class="post-views">
+  <img
+    src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url={{ post_url }}&count_bg=%23555555&title_bg=%23f5f5f5&icon=eye.svg&icon_color=%23555555&title=views&edge_flat=true"
+    alt="조회수"
+    loading="lazy"
+  />
+</div>
